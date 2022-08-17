@@ -7,7 +7,7 @@
 
 *   [Requirements](#requirements "Requirements")
 *   [Installation](#installation "Installation")
-*   [Create module](#create-module "Create module (soon)")
+*   [Create module](#create-module "Create module")
 
 ## Requirements
 
@@ -40,4 +40,4 @@ yarn dev
 You can access the management interface on your local address on port 3000  
 http://localhost:3000/
 
-
+## Create module
