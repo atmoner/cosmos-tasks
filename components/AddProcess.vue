@@ -319,34 +319,27 @@ export default {
       } else
         authData = false
 
-      console.log(this.timerUi)
-      // 'Every 1s', 'Every 10s', 'Every minute', 'Every hour', 'Every day'
       var timerValue = ''
       switch (this.timerUi) {
         case 'Every 1s':
-          console.log('1 seconde = 1000');
           timerValue = 1000
           break;
         case 'Every 10s':
-          console.log('10 secondes = 10000');
           timerValue = 10000
           break;
         case 'Every minute':
-          console.log('Every minute = 60000');
           timerValue = 60000
           break;
         case 'Every hour':
-          console.log('Every hour = 3600000');
           timerValue = 3600000
           break;
         case 'Every day':
-          console.log('Every day = 86400000');
           timerValue = 86400000
           break;
         default:
           console.log(`Sorry, we are out of ${expr}.`);
       }
-      console.log(timerValue)
+
       const response = await this.$axios.post( '/api/process/add', {
         name: this.taskName,
         script: foundModule.script,
@@ -369,7 +362,6 @@ export default {
       this.dialogConfig = true
       this.selectModule = module
       const foundModule = modulesConfig.find(element => element.name === this.selectModule)
-      console.log(foundModule.variable)
       this.listVar = foundModule.variable
       this.selectModuleDetail = foundModule
     },
