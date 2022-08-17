@@ -1,0 +1,33 @@
+{
+  "name": "web-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "install:get-price": "cd scripts/get-price/ && npm install",
+    "install:simple-send": "cd scripts/simple-send/ && npm install",
+    "install:reward-delegator": "cd scripts/reward-delegator/ && npm install",
+    "postinstall": "run-p install:*"
+  },
+  "dependencies": {
+    "@cosmjs/proto-signing": "^0.28.11",
+    "@nuxtjs/axios": "^5.13.6",
+    "core-js": "^3.19.3",
+    "express": "^4.18.1",
+    "npm-run-all": "^4.1.5",
+    "nuxt": "^2.12.2",
+    "pm2": "^5.2.0",
+    "vue": "^2.6.14",
+    "vue-server-renderer": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify": "^2.6.1",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.12.3"
+  }
+}

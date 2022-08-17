@@ -1,0 +1,14 @@
+{
+  "name": "timer",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.5"
+  }
+}
