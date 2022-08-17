@@ -24,7 +24,7 @@ If you have any ideas, improvements or security issues, please [open a discussio
 
 First, you need [Pm2](https://pm2.keymetrics.io) in global mode: 
 ```
-npm install pm2 -g
+yarn global add pm2
 ```
 
 Download our repo:
@@ -34,7 +34,7 @@ git clone https://github.com/atmoner/cosmos-tasks.git
 
 Go in and install all
 ```
-cd cosmos-tasks/ 
+cd cosmos-tasks  
 yarn install
 ```
 
