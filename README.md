@@ -7,6 +7,7 @@
 
 *   [Requirements](#requirements "Requirements")
 *   [Installation](#installation "Installation")
+*   [Create module](#create-module "Create module (soon)")
 
 ## Requirements
 
