@@ -1,5 +1,9 @@
 # Cosmos-tasks
 
+> __Warning__  
+This environment is in beta!  
+Use only development wallets (wallet created with only a bit of coin)
+
 ![image](https://user-images.githubusercontent.com/1071490/185205069-fdb43529-b297-43c8-841e-1051e7bf89e3.png)
 
 
