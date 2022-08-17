@@ -21,7 +21,8 @@ router.get('/wallets/list', function (req, res, next) {
   fs.readdir(pathTo + '/wallets/', (err, files) => {
     var wallets = []
     files.forEach(file => {
-      wallets.push({ name: file.replace('.json', ''), path: pathTo + '/wallets/' + file })
+      if (file !== 'index.js')
+        wallets.push({ name: file.replace('.json', ''), path: pathTo + '/wallets/' + file })
     })
     res.json(wallets)
   })
