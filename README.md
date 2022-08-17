@@ -1,18 +1,39 @@
 # Cosmos-tasks
 
-## Build Setup
+## Table of Contents
 
-```bash
-# install dependencies
-$ yarn install
+*   [Requirements](#requirements "Requirements")
+*   [Installation](#installation "Installation")
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+## Requirements
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+* NodeJs and yarn (or npm)
+* Pm2 install in global mode
 
-# generate static project
-$ yarn generate
+## Installation
+
+First, you need Pm2 in global mode:
 ```
+npm install pm2 -g
+```
+
+Download our repo:
+```
+git clone https://github.com/atmoner/cosmos-tasks.git
+```
+
+Go in and install all
+```
+cd cosmos-tasks/ 
+yarn install
+```
+
+And start it:
+```
+yarn dev
+```
+
+You can access the management interface on your local address on port 3000  
+http://localhost:3000/
+
+
