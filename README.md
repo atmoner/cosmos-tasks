@@ -2,7 +2,8 @@
 
 > __Warning__  
 This environment is in beta!  
-Use only development wallets (wallet created with only a bit of coin)
+Use only development wallets (wallet created with only a bit of coin)  
+If you have any ideas, improvements or security issues, please [open a discussion here](https://github.com/atmoner/cosmos-tasks/discussions/new)
 
 ![image](https://user-images.githubusercontent.com/1071490/185205069-fdb43529-b297-43c8-841e-1051e7bf89e3.png)
 
