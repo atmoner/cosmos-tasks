@@ -16,8 +16,8 @@ If you have any ideas, improvements or security issues, please [open a discussio
 
 ## Requirements
 
-* NodeJs and yarn (or npm)
-* Pm2 install in global mode
+* NodeJs and Yarn
+* Pm2 in global mode
 
 ## Installation
 
