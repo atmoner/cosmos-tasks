@@ -21,7 +21,7 @@ If you have any ideas, improvements or security issues, please [open a discussio
 
 ## Installation
 
-First, you need Pm2 in global mode:
+First, you need [Pm2](https://pm2.keymetrics.io) in global mode: 
 ```
 npm install pm2 -g
 ```
