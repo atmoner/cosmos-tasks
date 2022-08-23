@@ -52,7 +52,8 @@ http://localhost:3000/
 | timer     |  ✅     | ❌      | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/timer) |
 | get-price     |  ✅     | ❌      | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/get-price) |
 | simple-send    |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/simple-send) |
-| reward-delegator     |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/reward-delegator) |
+| withdraw-rewards    |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/withdraw-rewards) |
+| auto-reinvest     |  ❌     |  ✅     |  |
 | burn-nft (stargaze)     |  ❌     |  ✅     |  |
 
 
