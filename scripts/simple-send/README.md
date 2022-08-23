@@ -1,4 +1,4 @@
-## Timer
+## Simple send
 
 This module allows you to send simple tx to any address with any amount
 
