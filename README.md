@@ -64,6 +64,7 @@ http://localhost:3000/
 ## Todo
 
 - [ ] Create login system
+- [ ] Add notification system
 - [ ] Add more modules
  
 
