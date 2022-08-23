@@ -137,7 +137,20 @@
                   small
                   @click="readLog(logName)"
                 >
+                  <v-icon dark>
+                    mdi-refresh
+                  </v-icon>
                   Refresh
+                </v-btn>
+                <v-btn
+                  elevation="2"
+                  small
+                  @click.stop="dialog = true && emptyLog(logName)"
+                >
+                  <v-icon dark>
+                    mdi-broom
+                  </v-icon>
+                  Empty log
                 </v-btn>
               </v-card-title>
               <v-card-text>
@@ -148,7 +161,6 @@
                   :value="log"
                 ></v-textarea>
               </v-card-text>
-
             </v-card>
           </v-dialog>
         </v-card-text>
@@ -210,6 +222,13 @@ export default {
       this.log = response.data
       this.logName = name
     },
+    async emptyLog(name) {
+      const response = await this.$axios.post('/api/process/log/empty', {
+        name: name
+      })
+      this.log = response.data
+    },
+
   },
 }
 </script>

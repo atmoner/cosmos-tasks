@@ -93,5 +93,15 @@ router.post('/process/log', function (req, res, next) {
     res.json(err)
   }
 })
+/* POST PM2 empty log. */
+router.post('/process/log/empty', function (req, res, next) {
+  try {
+    const homePath = os.homedir()
+    fs.truncateSync(homePath + '/.pm2/logs/' + req.body.name + '-out.log');
+    res.json('')
+  } catch (err) {
+    res.json(err)
+  }
+})
 
 module.exports = router
