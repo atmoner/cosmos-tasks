@@ -11,6 +11,7 @@
     "install:get-price": "cd scripts/get-price/ && npm install",
     "install:simple-send": "cd scripts/simple-send/ && npm install",
     "install:withdraw-rewards": "cd scripts/withdraw-rewards/ && npm install",
+    "install:validator-commisions": "cd scripts/validator-commisions/ && npm install",
     "postinstall": "run-p install:*"
   },
   "dependencies": {
