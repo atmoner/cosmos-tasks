@@ -35,7 +35,7 @@ export default [
     },
     coingeckoId: 'chihuahua-token'
   },
-  /*{
+  {
     chainId: 'cosmoshub-4',
     name: 'Cosmoshub',
     desc: 'The Cosmos Hub is the first of thousands of interconnected blockchains that will eventually comprise the Cosmos Network.',
@@ -62,8 +62,7 @@ export default [
       icon: `https://raw.githubusercontent.com/osmosis-labs/assetlists/main/images/akt.svg`,
     },
     coingeckoId: 'akash-network'
-  }, */
-
+  },
   {
     chainId: 'osmosis-1',
     name: 'Osmosis',
@@ -173,24 +172,6 @@ export default [
     coingeckoId: 'comdex'
   },
   {
-    chainId: 'omniflixhub-1',
-    name: 'OmniFlix',
-    desc: 'OmniFlix is a p2p network for creators and sovereign communities',
-    apiURL: 'https://rest.omniFlix.network',
-    rpcURL: 'https://rpc.omniFlix.network',
-    coinLookup: {
-      viewDenom: 'FLIX',
-      chainDenom: 'uflix',
-      addressPrefix: 'omniflix',
-      icon: 'https://raw.githubusercontent.com/OmniFlix/docs/main/media/OmniFlix_Icon_v4.svg',
-    },
-    fee: {
-      amount: '5000',
-      gas: '200000',
-    },
-    coingeckoId: 'NA'
-  },
-  {
     chainId: 'cerberus-chain-1',
     name: 'Cerberus',
     desc: 'Cerberus the first ever three-headed meme-coin in the Cosmos ecosystem',
@@ -207,40 +188,5 @@ export default [
       gas: '200000',
     },
     coingeckoId: 'cerberus-2'
-  },
-  {
-    chainId: 'crescent-1',
-    name: 'Crescent',
-    desc: 'Innovating DeFi investment through advancements in inter-blockchain technology',
-    apiURL: 'https://mainnet.crescent.network:1317',
-    rpcURL: 'https://mainnet.crescent.network:26657',
-    coinLookup: {
-      viewDenom: 'CRE',
-      chainDenom: 'ucre',
-      addressPrefix: 'cre',
-      icon: 'https://crescent.network/static/media/crescent_logo.c16ebd6e40d82c2ba862decaf3037a97.svg',
-    },
-    fee: {
-      amount: '5000',
-      gas: '200000',
-    },
-    coingeckoId: 'crescent-network'
-  },
-  {
-    chainId: 'teritori-testnet-v2',
-    name: 'Teritori testnet ',
-    apiURL: 'https://lcd-teritori.ustak.eu',
-    rpcURL: 'https://rpc-teritori.ustak.eu',
-    coinLookup: {
-      viewDenom: 'TORI',
-      chainDenom: 'utori',
-      addressPrefix: 'tori',
-      icon: `https://avatars.githubusercontent.com/u/108656591`,
-    },
-    fee: {
-      amount: '5000',
-      gas: '200000',
-    },
-    coingeckoId: 'akash-network'
-  },
+  }
 ]
