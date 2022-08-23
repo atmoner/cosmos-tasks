@@ -73,6 +73,7 @@ http://localhost:3000/
 
 - [ ] Create login system
 - [ ] Add notification system
+- [ ] Create update checker
 - [ ] Add more modules
  
 
