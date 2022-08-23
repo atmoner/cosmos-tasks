@@ -21,7 +21,7 @@ export default [
   },
   {
     name: 'Simple-send',
-    desc: '<h3>Simple-send</h3> This module allows you to reward your delegation and delegate <br />the amount to a validator of your choice',
+    desc: '<h3>Simple-send</h3> This module allows you to send simple tx to any address with any amount',
     script: './scripts/simple-send/app.js',
     type: 'prod',
     auth: true,
