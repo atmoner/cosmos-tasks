@@ -31,9 +31,9 @@ export default [
     },
   },
   {
-    name: 'Auto-Reward',
-    desc: '<h3>Auto reward module</h3> This module allows you to reward your delegation and delegate <br />the amount to a validator of your choice',
-    script: './scripts/reward-delegator/app.js',
+    name: 'Withdraw-rewards',
+    desc: '<h3>Withdraw-rewards</h3> This module allows you to reward your delegation and delegate <br />the amount to a validator of your choice',
+    script: './scripts/withdraw-rewards/app.js',
     type: 'prod',
     auth: true,
     variable: {
