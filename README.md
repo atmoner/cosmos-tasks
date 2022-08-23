@@ -18,28 +18,35 @@ If you have any ideas, improvements or security issues, please [open a discussio
 
 ## Requirements
 
-* NodeJs and Yarn
+* NodeJs 
+```
+sudo apt install nodejs npm
+```
+* Yarn
+```
+npm install --global yarn
+```
 * Pm2 in global mode
-
-## Installation
-
-First, you need [Pm2](https://pm2.keymetrics.io) in global mode: 
 ```
 yarn global add pm2
 ```
 
-Download our repo:
+## Installation
+
+Download our repo
 ```
 git clone https://github.com/atmoner/cosmos-tasks.git
 ```
 
-Go in and install all
+Go in folder
 ```
-cd cosmos-tasks  
+cd cosmos-tasks/ 
+```
+Install all libs
+```
 yarn install
 ```
-
-And start it:
+And start UI
 ```
 yarn dev
 ```
