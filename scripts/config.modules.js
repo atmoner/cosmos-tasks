@@ -5,6 +5,7 @@ export default [
     script: './scripts/timer/app.js',
     type: 'prod',
     auth: false,
+    notice: '',
     variable: {
       0: 'Cosmos_var1',
       1: 'Cosmos_var2'
@@ -16,6 +17,7 @@ export default [
     script: './scripts/get-price/app.js',
     type: 'prod',
     auth: false,
+    notice: '',
     variable: {
     },
   },
@@ -25,6 +27,7 @@ export default [
     script: './scripts/simple-send/app.js',
     type: 'prod',
     auth: true,
+    notice: '',
     variable: {
       0: 'sendTo',
       1: 'amount'
@@ -36,6 +39,7 @@ export default [
     script: './scripts/withdraw-rewards/app.js',
     type: 'prod',
     auth: true,
+    notice: '',
     variable: {
       0: 'FromValidator'
     },
@@ -46,6 +50,17 @@ export default [
     script: './scripts/validator-commisions/app.js',
     type: 'prod',
     auth: true,
+    notice: 'You must be a validator to run this script, otherwise it won\'t work!',
+    variable: {
+    },
+  },
+  {
+    name: 'Reinvest-delegations',
+    desc: '<h3>Reinvest delegations</h3> This module allows you to reinvest the rewards of each delegation to the validator',
+    script: './scripts/reinvest-delegations/app.js',
+    type: 'prod',
+    auth: true,
+    notice: '',
     variable: {
     },
   }

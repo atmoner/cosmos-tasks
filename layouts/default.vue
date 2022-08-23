@@ -25,7 +25,7 @@
 
         </v-avatar>
 
-        <div>Wallet name</div>
+        <div>Multichain tasks</div>
       </v-sheet>
 
       <v-divider></v-divider>
