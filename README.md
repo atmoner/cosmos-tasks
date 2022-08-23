@@ -54,6 +54,7 @@ http://localhost:3000/
 | get-price     |  ✅     | ❌      | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/get-price) |
 | simple-send    |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/simple-send) |
 | withdraw-rewards    |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/withdraw-rewards) |
+| validator-commisions    |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/validator-commisions) |
 | auto-reinvest     |  ❌     |  ✅     |  |
 | burn-nft (stargaze)     |  ❌     |  ✅     |  |
 
