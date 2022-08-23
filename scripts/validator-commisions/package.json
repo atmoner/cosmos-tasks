@@ -1,0 +1,16 @@
+{
+  "name": "reward-delegator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cosmjs/proto-signing": "^0.28.11",
+    "@cosmjs/stargate": "^0.28.11",
+    "bech32": "^2.0.0",
+    "dayjs": "^1.11.5"
+  }
+}
