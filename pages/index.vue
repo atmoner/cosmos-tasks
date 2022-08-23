@@ -177,7 +177,7 @@ export default {
     ...mapState('data', ['allProcess', 'allProcessLoaded', 'allWallets']),
   },
   async mounted () {
-    this.initProcess()
+    this.initProcess( )
   },
   methods: {
     async initProcess(name) {
