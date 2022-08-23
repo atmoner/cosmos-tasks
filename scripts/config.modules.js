@@ -53,7 +53,7 @@ export default [
     notice: 'You must be a validator to run this script, otherwise it won\'t work!',
     variable: {
     },
-  },
+  }/*,
   {
     name: 'Reinvest-delegations',
     desc: '<h3>Reinvest delegations</h3> This module allows you to reinvest the rewards of each delegation to the validator',
@@ -63,6 +63,6 @@ export default [
     notice: '',
     variable: {
     },
-  }
+  }*/
 ]
 
