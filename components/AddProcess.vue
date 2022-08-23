@@ -85,7 +85,7 @@
                           mdi-dev-to
                         </v-icon>
                       </template>
-                      <span v-html="">Module dev</span>
+                      <span v-html="">Mod under development</span>
                     </v-tooltip>
                     <v-tooltip
                       top
