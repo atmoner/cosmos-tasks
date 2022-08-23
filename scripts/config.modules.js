@@ -48,7 +48,7 @@ export default [
     name: 'Validator-commisions',
     desc: '<h3>Validator commisions</h3> This module allows you to recover your validator commissions, if you are not a validator, the script will not work',
     script: './scripts/validator-commisions/app.js',
-    type: 'prod',
+    type: 'dev',
     auth: true,
     notice: 'You must be a validator to run this script, otherwise it won\'t work!',
     variable: {
@@ -58,7 +58,7 @@ export default [
     name: 'Reinvest-delegations',
     desc: '<h3>Reinvest delegations</h3> This module allows you to reinvest the rewards of each delegation to the validator',
     script: './scripts/reinvest-delegations/app.js',
-    type: 'prod',
+    type: 'dev',
     auth: true,
     notice: '',
     variable: {
