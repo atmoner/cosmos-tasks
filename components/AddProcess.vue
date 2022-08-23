@@ -31,7 +31,7 @@
                 v-for="n in modulesConfig"
                 :key="n.name"
                 cols="12"
-                md="4"
+                md="6"
               >
                 <v-item>
                   <v-card
