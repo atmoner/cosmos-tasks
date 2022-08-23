@@ -14,6 +14,7 @@ If you have any ideas, improvements or security issues, please [open a discussio
 *   [Installation](#installation "Installation")
 *   [List modules](#list-modules "List modules")
 *   [Create module](#create-module "Create module")
+*   [Todo](#todo "Todo")
 
 ## Requirements
 
@@ -56,15 +57,16 @@ http://localhost:3000/
 | auto-reinvest     |  ❌     |  ✅     |  |
 | burn-nft (stargaze)     |  ❌     |  ✅     |  |
 
-
-
-
-
-
-
 ## Create module
 
 (Soon)
+
+## Todo
+
+- [ ] Create login system
+- [ ] Add more modules
+ 
+
 
 ## Disclaimer responsibility
 COSMOS-TASK DECLINES RESPONSIBILITY FOR YOUR WALLETS. INDEED, THE PROGRAM SAVES YOUR WALLETS ON YOUR OWN MACHINE (SERVER OR PC) AND HAS NO ACCESS AT ANY TIME TO YOUR SAVED DATA.  
