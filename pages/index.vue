@@ -103,7 +103,7 @@
                       elevation="2"
                       color="error"
                       small
-                      @click="deleteProcess(p.item.pm_id)"
+                      @click="deleteProcess(p.item.pm_id, p.item.name)"
                       :disabled="p.item.pm2_env.status !== 'stopped'"
                     >
                       <v-icon dark>
@@ -200,9 +200,10 @@ export default {
       })
       this.$store.dispatch('data/getAllProcess')
     },
-    async deleteProcess(id) {
+    async deleteProcess(id, name) {
       const response = await this.$axios.post('/api/process/delete', {
-        id: id
+        id: id,
+        name: name
       })
       this.$store.dispatch('data/getAllProcess')
     },

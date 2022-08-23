@@ -43,6 +43,9 @@ router.post('/process/stop', function (req, res, next) {
 router.post('/process/delete', function (req, res, next) {
   pm2.delete( req.body.id , (err, proc) => {
     // Disconnects from PM2
+    const homePath = os.homedir()
+    fs.unlinkSync(homePath + '/.pm2/logs/' + req.body.name + '-out.log')
+    fs.unlinkSync(homePath + '/.pm2/logs/' + req.body.name + '-error.log')
     res.json('true')
   }, function(err, apps) {
     if (err) { throw err }
@@ -89,7 +92,6 @@ router.post('/process/log', function (req, res, next) {
   } catch (err) {
     res.json(err)
   }
-
 })
 
 module.exports = router
