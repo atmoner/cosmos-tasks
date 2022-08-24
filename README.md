@@ -7,7 +7,7 @@ If you have any ideas, improvements or security issues, please [open a discussio
 
 ![image](https://user-images.githubusercontent.com/1071490/185205069-fdb43529-b297-43c8-841e-1051e7bf89e3.png)
 
-Cosmos-task is an interface to facilitate the use of pm2 (Process manager) that we have adapted for the cosmos ecosystem.  
+Cosmos-task is an interface to facilitate the use of pm2 (Process manager) that we have adapted for the :atom_symbol: cosmos ecosystem.  
 Pm2 allows you to launch nodejs scripts in daemon, which means that each module (or script) will run in the background to perform actions every X time.  
 
 It is therefore possible to automate any actions on your own wallet from your machine!
