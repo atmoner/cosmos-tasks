@@ -65,8 +65,8 @@ http://localhost:3000/
 
 If you are the owner of a blockchain and want to be added, contact me
 
-On twitter: [@atmon3r](https://twitter.com/atmon3r)  
-On telegram: [@atmon3r](https://t.me/atmon3r) 
+➡️ On twitter: [@atmon3r](https://twitter.com/atmon3r)  
+➡️ On telegram: [@atmon3r](https://t.me/atmon3r) 
 
 ## List modules
 
