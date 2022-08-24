@@ -3,6 +3,7 @@
     <v-dialog
       v-model="dialog"
       max-width="800px"
+      max-height="800px"
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
@@ -25,7 +26,7 @@
         </v-card-title>
         <v-card-text>
         <v-item-group>
-          <v-container>
+
             <v-row>
               <v-col
                 v-for="n in modulesConfig"
@@ -121,7 +122,7 @@
                 </v-item>
               </v-col>
             </v-row>
-          </v-container>
+
         </v-item-group>
         </v-card-text>
 
@@ -146,7 +147,6 @@
 
         <v-card-text>
 
-          <v-container>
             <v-row>
               <v-col
                 cols="12"
@@ -241,7 +241,7 @@
                 ></v-text-field>
               </v-col>
             </v-row>
-          </v-container>
+
           <small>*indicates required field</small>
         </v-card-text>
 
