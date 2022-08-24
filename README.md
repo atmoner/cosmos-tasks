@@ -12,6 +12,7 @@ If you have any ideas, improvements or security issues, please [open a discussio
 
 *   [Requirements](#requirements "Requirements")
 *   [Installation](#installation "Installation")
+*   [Blockchain support](#blockchain-support "Blockchain support")
 *   [List modules](#list-modules "List modules")
 *   [Create module](#create-module "Create module")
 *   [Todo](#todo "Todo")
@@ -53,6 +54,17 @@ yarn dev
 
 You can access the management interface on your local address on port 3000  
 http://localhost:3000/
+
+## Blockchain support
+
+1. Atom
+2. BitCanna
+3. Stargaze
+
+If you are the owner of a blockchain and want to be added, contact me
+
+On twitter: [@atmon3r](https://twitter.com/atmon3r)  
+On telegram: [@atmon3r](https://t.me/atmon3r) 
 
 ## List modules
 
