@@ -60,6 +60,8 @@ http://localhost:3000/
 1. Atom
 2. BitCanna
 3. Stargaze
+4. Akash
+5. Osmosis
 
 If you are the owner of a blockchain and want to be added, contact me
 
