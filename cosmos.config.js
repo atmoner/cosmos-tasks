@@ -17,7 +17,7 @@ export default [
     },
     coingeckoId: 'bitcanna'
   },
-  {
+  /*{
     chainId: 'chihuahua-1',
     name: 'Chihuahua',
     desc: 'Chihuahua is the first interoperable meme coin with a POS blockchain, making it one of the most utilized chains in the Cosmos ecosystem',
@@ -34,7 +34,7 @@ export default [
       gas: '200000',
     },
     coingeckoId: 'chihuahua-token'
-  },
+  },*/
   {
     chainId: 'cosmoshub-4',
     name: 'Cosmoshub',
@@ -81,7 +81,7 @@ export default [
     },
     coingeckoId: 'osmosis'
   },
-  {
+  /*{
     chainId: 'iov-mainnet-ibc',
     name: 'Starname',
     desc: 'Starname is a crypto name service and the best way to claim your part of the blockchain.',
@@ -98,7 +98,7 @@ export default [
       gas: '200000',
     },
     coingeckoId: 'starname'
-  },
+  }, */
   {
     chainId: 'stargaze-1',
     name: 'Stargaze',
@@ -117,7 +117,7 @@ export default [
     },
     coingeckoId: 'stargaze'
   },
-  {
+  /*{
     chainId: 'bitsong-2b',
     name: 'BitSong',
     desc: 'A Blockchain Ecosystem to Empower the Music Industry. Artists, fans, distributors and labels.',
@@ -188,5 +188,5 @@ export default [
       gas: '200000',
     },
     coingeckoId: 'cerberus-2'
-  }
+  }*/
 ]
