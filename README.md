@@ -55,6 +55,11 @@ You can access the management interface on your local address on port 3000
 http://localhost:3000/
 
 ## List modules
+
+ 
+<img src="https://user-images.githubusercontent.com/1071490/186449483-351e8567-5e89-4478-8ef6-3128dc464aad.png" width="500" height="350" />
+
+
 | Module name | Statut | Need wallet | script
 | -------- | -------- | -------- | -------- |
 | timer     |  ✅     | ❌      | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/timer) |
@@ -64,6 +69,7 @@ http://localhost:3000/
 | validator-commisions    |  ✅     |  ✅     | [View](https://github.com/atmoner/cosmos-tasks/tree/main/scripts/validator-commisions) |
 | auto-reinvest     |  ❌     |  ✅     |  |
 | burn-nft (stargaze)     |  ❌     |  ✅     |  |
+
 
 ## Create module
 
