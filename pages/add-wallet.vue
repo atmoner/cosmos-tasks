@@ -176,7 +176,6 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
     },
     methods: {
       async addWallet() {
-        console.log(this.$refs.form.validate())
         try {
           const wallet = await DirectSecp256k1HdWallet.fromMnemonic( this.mnemonic )
           var finalWallet = await wallet.serialize( this.password )
