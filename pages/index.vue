@@ -1,11 +1,86 @@
 <template>
   <v-row justify="center" align="center" class="pa-md-8 mx-lg-auto">
+
+
+
     <v-col cols="12" sm="8" md="12">
+
       <div>
         <p v-if="$fetchState.pending"></p>
         <p v-else-if="$fetchState.error">An error occurred</p>
         <div v-else>
-          <v-card>
+
+          <v-row>
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <v-item>
+                <v-card
+                  class="mx-auto"
+                  height="70"
+                >
+                  <v-card-title>
+                    Tasks
+                    <v-spacer></v-spacer>
+                    <v-chip
+                      :color="allProcess.length !== 1 ? 'orange' : 'green'"
+                      text-color="white"
+                    >
+                      {{ allProcess.length }}
+                    </v-chip>
+                  </v-card-title>
+                </v-card>
+              </v-item>
+            </v-col>
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <v-item>
+                <v-card
+                  class="mx-auto"
+                  height="70"
+                >
+                  <v-card-title>
+                    Wallets
+                    <v-spacer></v-spacer>
+                    <v-chip
+                      :color="allWallets.length !== 1 ? 'orange' : 'green'"
+                      text-color="white"
+                    >
+                      {{ allWallets.length }}
+                    </v-chip>
+
+                  </v-card-title>
+                </v-card>
+              </v-item>
+            </v-col>
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <v-item>
+                <v-card
+                  class="mx-auto"
+                  height="70"
+                >
+                  <v-card-title>
+                    Errors
+                    <v-spacer></v-spacer>
+                    <v-chip
+                      color="green"
+                      text-color="white"
+                    >
+                      0
+                    </v-chip>
+                  </v-card-title>
+                </v-card>
+              </v-item>
+            </v-col>
+          </v-row>
+
+          <v-card class="mt-12 mx-auto">
             <v-card-title class="headline">
               Tasks management <AddProcess />
               <v-spacer />
@@ -22,7 +97,9 @@
             </v-card-title>
 
             <v-card-text>
-              <v-simple-table>
+              <v-simple-table
+                v-if="allProcess.length > 0"
+              >
                 <template v-slot:default>
                   <thead>
                     <tr>
