@@ -146,7 +146,7 @@
         </v-card-title>
 
         <v-card-text>
-
+          <v-form v-model="valid">
             <v-row>
               <v-col
                 cols="12"
@@ -156,6 +156,7 @@
                 <v-text-field
                   outlined
                   v-model="taskName"
+                  :rules="[v => !!v || 'This field is required',]"
                   label="Task name"
                   required
                 ></v-text-field>
@@ -167,6 +168,7 @@
               >
                 <v-select
                   v-model="timerUi"
+                  :rules="[v => !!v || 'This field is required',]"
                   outlined
                   :items="['Every 1s', 'Every 10s', 'Every minute', 'Every hour', 'Every day']"
                   label="Task timer"
@@ -180,6 +182,7 @@
               >
                 <v-select
                   v-model="selectChain"
+                  :rules="[v => !!v || 'This field is required',]"
                   :items="allAssets"
                   item-text="text"
                   label="Select Chain"
@@ -207,6 +210,7 @@
               >
                 <v-select
                   v-model="finalWallet"
+                  :rules="[v => !!v || 'This field is required',]"
                   outlined
                   :items="allWallet"
                   label="Select wallet"
@@ -222,6 +226,7 @@
                 <v-text-field
                   outlined
                   v-model="walletPassword"
+                  :rules="[v => !!v || 'This field is required',]"
                   label="Password wallet"
                   type="password"
                   autoComplete="true"
@@ -235,28 +240,28 @@
               >
                 <v-text-field
                   v-model="allVariables[n]"
+                  :rules="[v => !!v || 'This field is required',]"
                   outlined
                   :label="n"
                   required
                 ></v-text-field>
               </v-col>
             </v-row>
-
+          </v-form>
           <small>*indicates required field</small>
         </v-card-text>
 
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="red darken-1"
-            text
+            color="orange darken-1"
             @click="returnModal"
           >
             Return
           </v-btn>
           <v-btn
             color="green darken-1"
-            text
+            :disabled="!valid"
             @click="addProcess"
           >
             Add task
@@ -274,6 +279,7 @@ import modulesConfig from '~/scripts/config.modules'
 
 export default {
   data: () => ({
+    valid: false,
     dialog: false,
     dialogConfig: false,
     taskName: '',

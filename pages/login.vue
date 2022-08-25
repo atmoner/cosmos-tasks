@@ -59,9 +59,9 @@ export default {
  data() {
      return {
       valid: false,
-      name:'',
+      name:'cosmonaut',
       email: '',
-      password:'',
+      password:'cosmonaut',
       error: ''
      }
    },
