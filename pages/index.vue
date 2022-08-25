@@ -24,7 +24,7 @@
                     Tasks
                     <v-spacer></v-spacer>
                     <v-chip
-                      :color="allProcess.length !== 1 ? 'orange' : 'green'"
+                      :color="allProcess.length < 1 ? 'orange' : 'green'"
                       text-color="white"
                     >
                       {{ allProcess.length }}
@@ -46,7 +46,7 @@
                     Wallets
                     <v-spacer></v-spacer>
                     <v-chip
-                      :color="allWallets.length !== 1 ? 'orange' : 'green'"
+                      :color="allWallets.length < 1 ? 'orange' : 'green'"
                       text-color="white"
                     >
                       {{ allWallets.length }}
