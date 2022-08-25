@@ -15,6 +15,9 @@
           {{ viewErrorMsg }}
         </v-alert>
           <v-card min-height="380px">
+            <v-card-title>
+              Add wallet
+            </v-card-title>
             <v-card-text>
               <v-form v-model="valid">
 
@@ -26,8 +29,10 @@
                       <v-text-field
                         outlined
                         v-model="walletName"
-                        :counter="10"
+                        :rules="nameRules"
+                        :counter="20"
                         label="Wallet name"
+                        required
                       ></v-text-field>
                     </v-col>
                     <v-col
@@ -37,6 +42,7 @@
                       <v-text-field
                         outlined
                         v-model="mnemonic"
+                        :rules="mnemonicRules"
                         label="Your mnemonic"
                         type="password"
                         autoComplete="true"
@@ -49,6 +55,7 @@
                       <v-text-field
                         outlined
                         v-model="password"
+                        :rules="passRules"
                         label="Password"
                         type="password"
                         autoComplete="true"
@@ -62,16 +69,20 @@
               <v-spacer />
               <v-btn
                 color="primary"
+                :disabled="!valid"
                 nuxt
                 @click="addWallet"
               >
-                Continue
+                Add wallet
               </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
         <v-col cols="12" sm="8" md="6">
-          <v-card min-height="380px">
+          <v-card min-height="440px">
+            <v-card-title>
+              Your wallets
+            </v-card-title>
             <v-card-text>
               <v-simple-table>
                 <template v-slot:default>
@@ -137,6 +148,16 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
       viewErrorMsg: '',
       listWallets: '',
       dialogDetail: false,
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => v.length <= 20 || 'Name must be less than 20 characters',
+      ],
+      mnemonicRules: [
+        v => !!v || 'Mnemonic is required',
+      ],
+      passRules: [
+        v => !!v || 'Password is required'
+      ],
     }),
     computed: {
       ...mapState('data', ['allProcess', 'allProcessLoaded', 'allWallets', 'logged', 'userToken']),
@@ -155,6 +176,7 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
     },
     methods: {
       async addWallet() {
+        console.log(this.$refs.form.validate())
         try {
           const wallet = await DirectSecp256k1HdWallet.fromMnemonic( this.mnemonic )
           var finalWallet = await wallet.serialize( this.password )
