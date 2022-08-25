@@ -51,6 +51,14 @@ Install all libs
 ```
 yarn install
 ```
+
+During installation, a basic account is created.
+
+User: `cosmonaut`  
+Pass: `cosmonaut`
+
+You can modify your identifiers in the file: `auth.config.js`
+
 And start UI
 ```
 yarn dev
@@ -94,7 +102,7 @@ If you are the owner of a blockchain and want to be added, contact me
 
 ## Todo
 
-- [ ] Create login system
+- [x] Create login system [View commit](https://github.com/atmoner/cosmos-tasks/commit/9b545c46a89723f6e7179b651cf00a2c2411dff7)
 - [ ] Add notification system
 - [ ] Create update checker
 - [ ] Add more modules
