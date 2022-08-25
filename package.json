@@ -12,6 +12,7 @@
     "install:simple-send": "cd scripts/simple-send/ && npm install",
     "install:withdraw-rewards": "cd scripts/withdraw-rewards/ && npm install",
     "install:validator-commisions": "cd scripts/validator-commisions/ && npm install",
+    "install:create-account": "node createAccount.js",
     "postinstall": "run-p install:*"
   },
   "dependencies": {
@@ -19,11 +20,13 @@
     "@nuxtjs/axios": "^5.13.6",
     "core-js": "^3.19.3",
     "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
     "npm-run-all": "^4.1.5",
     "nuxt": "^2.12.2",
     "pm2": "^5.2.0",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
+    "vue-session": "^1.0.0",
     "vue-template-compiler": "^2.6.14",
     "vuetify": "^2.6.1",
     "webpack": "^5.74.0"

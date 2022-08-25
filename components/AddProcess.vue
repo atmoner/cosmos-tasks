@@ -268,6 +268,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import cosmosConfig from '~/cosmos.config'
 import modulesConfig from '~/scripts/config.modules'
 
@@ -288,6 +289,9 @@ export default {
     finalWallet: '',
     allVariables: [],
   }),
+  computed: {
+    ...mapState('data', ['userToken']),
+  },
   async mounted () {
     var allAssets = this.allAssets
     cosmosConfig.forEach( function( item ) {
@@ -295,12 +299,19 @@ export default {
     })
     this.allAssets = allAssets
 
-    const response = await this.$axios.get( '/api/wallets/list' )
-    var allWallet = this.allWallet
-    response.data.forEach( function( item ) {
-      allWallet.push( item.name )
-    })
-    this.allWallet = allWallet
+    try {
+      const response = await this.$axios.post( '/api/wallets/list', {
+          token: this.userToken
+        })
+      var allWallet = this.allWallet
+      response.data.forEach( function( item ) {
+        allWallet.push( item.name )
+      })
+      this.allWallet = allWallet
+    } catch (err) {
+      console.log(err)
+    }
+
   },
   methods: {
     async addProcess( name ) {
@@ -348,10 +359,12 @@ export default {
         chain: this.selectChain.text,
         logo: this.selectChain.img,
         varPersonalised: formatVariable,
-        authData: authData
+        authData: authData,
+        token: this.userToken
       })
       this.$store.dispatch( 'data/getAllProcess' )
       this.allVariables = []
+      this.dialogConfig = false
     },
     setSelected( value ) {
       const foundLogo = cosmosConfig.find( element => element.coinLookup.viewDenom === value )

@@ -1,14 +1,14 @@
 const express = require('express')
-
-
 // Create express instance
 const app = express()
 
 // Require API routes
+const auth = require('./routes/auth')
 const processPm2 = require('./routes/process')
 const wallets = require('./routes/wallets')
 
 // Import API Routes
+app.use(auth)
 app.use(processPm2)
 app.use(wallets)
 

@@ -24,8 +24,13 @@
         >
 
         </v-avatar>
-
-        <div>Multichain tasks</div>
+        <div v-if="logged">
+          <v-btn
+            @click="logout"
+          >
+            Logout
+          </v-btn>
+        </div>
       </v-sheet>
 
       <v-divider></v-divider>
@@ -54,14 +59,38 @@
 </template>
 
 <script>
-  export default {
-    data: () => ({
-      cards: ['Today', 'Yesterday'],
-      drawer: null,
-      links: [
-        ['mdi-inbox-arrow-down', 'Tasks', '/'],
-        ['mdi-wallet-plus-outline', 'Wallets', '/add-wallet']
-      ],
-    }),
-  }
+import { mapState } from 'vuex'
+
+export default {
+  data: () => ({
+    cards: ['Today', 'Yesterday'],
+    drawer: null,
+    links: [
+    ],
+  }),
+  computed: {
+    ...mapState('data', ['logged']),
+  },
+  watch: {
+    logged(val, oldVal) {
+      this.links = []
+      this.links.push( ['mdi-inbox-arrow-down', 'Tasks', '/'],
+      ['mdi-wallet-plus-outline', 'Wallets', '/add-wallet'] )
+    }
+  },
+  created() {
+
+    if (!this.logged) {
+      this.links.push(['mdi-login', 'Login', '/login'])
+    }
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('data/logout')
+      this.links = []
+      this.links.push(['mdi-login', 'Login', '/login'])
+      this.$router.push('/login')
+    },
+  },
+}
 </script>
