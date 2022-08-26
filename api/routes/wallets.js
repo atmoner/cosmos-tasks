@@ -23,7 +23,7 @@ router.post('/wallets/add', function (req, res, next) {
   var checkTokenReturn = checkToken(req.body.token, res)
   if (checkTokenReturn) {
     var pathTo = __dirname.replace('/api/routes', '')
-    fs.writeFileSync(pathTo + '/wallets/' + req.body.name + '.json', req.body.data)
+    fs.writeFileSync(pathTo + '/wallets/' + req.body.name + '.json', '{ "address": "'+req.body.address+'", "data": '+req.body.data+' }')
     res.json('Wallet added')
   } else
     res.status(401).json("Invalid Token")

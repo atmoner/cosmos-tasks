@@ -168,6 +168,18 @@
                         </v-btn>
                         <v-btn
                           elevation="2"
+                          color="blue"
+                          small
+                          @click="start(p.item.name)"
+                          :disabled="p.item.pm2_env.status === 'stopped'"
+                        >
+                          <v-icon dark>
+                            mdi-arrow-right-drop-circle-outline
+                          </v-icon>
+                          Restart
+                        </v-btn>
+                        <v-btn
+                          elevation="2"
                           color="warning"
                           small
                           @click="stop(p.item.pm_id)"

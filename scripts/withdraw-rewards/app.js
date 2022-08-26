@@ -30,7 +30,8 @@ async function doStuff() {
 
   let finalWallet = fs.readFileSync('wallets/' + process.env.COSMOS_WALLET + '.json')
   let foundChain = cosmosConfig.find(element => element.coinLookup.viewDenom === process.env.COSMOS_CHAIN)
-  var finalWalletDecode = await DirectSecp256k1HdWallet.deserialize( finalWallet, secret )
+  let finalWalletData = JSON.parse(finalWallet)
+  var finalWalletDecode = await DirectSecp256k1HdWallet.deserialize(JSON.stringify(finalWalletData.data), secret)
 
   const wallet = await DirectSecp256k1HdWallet.fromMnemonic(finalWalletDecode.secret.data, {
     prefix: foundChain.coinLookup.addressPrefix

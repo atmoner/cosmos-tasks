@@ -47,6 +47,7 @@
                         type="password"
                         autoComplete="true"
                       ></v-text-field>
+                      Address: <b>{{ addressWallet }}</b>
                     </v-col>
                     <v-col
                       cols="12"
@@ -79,7 +80,7 @@
           </v-card>
         </v-col>
         <v-col cols="12" sm="8" md="6">
-          <v-card min-height="440px">
+          <v-card min-height="460px">
             <v-card-title>
               Your wallets
             </v-card-title>
@@ -148,6 +149,8 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
       viewErrorMsg: '',
       listWallets: '',
       dialogDetail: false,
+      addressWallet: '',
+      addressWalletError: false,
       nameRules: [
         v => !!v || 'Name is required',
         v => v.length <= 20 || 'Name must be less than 20 characters',
@@ -161,6 +164,21 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
     }),
     computed: {
       ...mapState('data', ['allProcess', 'allProcessLoaded', 'allWallets', 'logged', 'userToken']),
+    },
+    watch:{
+      async 'mnemonic'(newVal){
+        try {
+          const wallet = await DirectSecp256k1HdWallet.fromMnemonic(newVal, {
+            prefix: 'cosmos'
+          });
+          const [firstAccount] = await wallet.getAccounts()
+          console.log(firstAccount)
+          this.addressWallet = firstAccount.address
+        } catch (error) {
+          console.log(error)
+          this.addressWallet = error
+        }
+      }
     },
     async fetch() {
       let checkToken = await this.$store.dispatch('data/checkToken')
@@ -182,7 +200,8 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
           const response = await this.$axios.post('/api/wallets/add', {
             name: this.walletName,
             data: finalWallet,
-            token: this.userToken
+            token: this.userToken,
+            address: this.addressWallet
           })
           await this.$store.dispatch('data/getAllWallets')
         } catch (error) {
