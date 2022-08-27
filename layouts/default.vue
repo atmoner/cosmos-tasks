@@ -63,7 +63,6 @@ import { mapState } from 'vuex'
 
 export default {
   data: () => ({
-    cards: ['Today', 'Yesterday'],
     drawer: null,
     links: [
     ],
@@ -74,21 +73,30 @@ export default {
   watch: {
     logged(val, oldVal) {
       this.links = []
-      this.links.push( ['mdi-inbox-arrow-down', 'Tasks', '/'],
-      ['mdi-wallet-plus-outline', 'Wallets', '/add-wallet'] )
+      this.links.push(
+        ['mdi-inbox-arrow-down', 'Tasks', '/'],
+        ['mdi-wallet-plus-outline', 'Wallets', '/add-wallet'],
+        ['mdi-lifebuoy', 'Help', '/help'],
+      )
     }
   },
   created() {
 
     if (!this.logged) {
-      this.links.push(['mdi-login', 'Login', '/login'])
+      this.links.push(
+        ['mdi-login', 'Login', '/login'],
+        ['mdi-lifebuoy', 'Help', '/help']
+      )
     }
   },
   methods: {
     async logout() {
       await this.$store.dispatch('data/logout')
       this.links = []
-      this.links.push(['mdi-login', 'Login', '/login'])
+      this.links.push(
+        ['mdi-login', 'Login', '/login'],
+        ['mdi-lifebuoy', 'Help', '/help']
+      )
       this.$router.push('/login')
     },
   },
