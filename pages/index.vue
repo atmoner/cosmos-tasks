@@ -346,6 +346,7 @@ export default {
         token: this.userToken
       })
       this.log = response.data
+      notifSuccess(this.$toast, 'Log deleted')
     },
 
   },
