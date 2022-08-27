@@ -5,7 +5,7 @@ This environment is in beta!
 Use only development wallets (wallet created with only a bit of coin)  
 If you have any ideas, improvements or security issues, please [open a discussion here](https://github.com/atmoner/cosmos-tasks/discussions/new)
 
-![image](https://user-images.githubusercontent.com/1071490/185205069-fdb43529-b297-43c8-841e-1051e7bf89e3.png)
+![image](https://user-images.githubusercontent.com/1071490/187035139-3a1af860-64ae-4ab2-a9a4-e9219cf962f2.png)
 
 Cosmos-task is an interface to facilitate the use of pm2 (Process manager) that we have adapted for the :atom_symbol: cosmos ecosystem.  
 Pm2 allows you to launch nodejs scripts in daemon, which means that each module (or script) will run in the background to perform actions every X time.  
