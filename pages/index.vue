@@ -338,6 +338,7 @@ export default {
       })
       this.log = response.data
       this.logName = name
+      notifSuccess(this.$toast, 'Log refreshed')
     },
     async emptyLog(name) {
       const response = await this.$axios.post('/api/process/log/empty', {
