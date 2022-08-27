@@ -87,7 +87,7 @@
               <v-btn
                 elevation="2"
                 small
-                @click="initProcess"
+                @click="refresh"
               >
               <v-icon dark>
                 mdi-refresh
@@ -270,6 +270,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { notifWaiting, notifError, notifSuccess } from '~/libs/notifications'
 
 export default {
   name: 'IndexPage',
@@ -297,6 +298,11 @@ export default {
     }
   },
   methods: {
+    async refresh() {
+      await this.$store.dispatch('data/getAllProcess')
+      await this.$store.dispatch('data/getAllWallets')
+      notifSuccess(this.$toast, 'Refresh!!')
+    },
     async initProcess(name) {
       await this.$store.dispatch('data/getAllProcess')
       await this.$store.dispatch('data/getAllWallets')
@@ -307,6 +313,7 @@ export default {
         token: this.userToken
       })
       this.$store.dispatch('data/getAllProcess')
+      notifSuccess(this.$toast, name + ' module started')
     },
     async stop(id) {
       const response = await this.$axios.post('/api/process/stop', {
@@ -314,6 +321,7 @@ export default {
         token: this.userToken
       })
       this.$store.dispatch('data/getAllProcess')
+      notifSuccess(this.$toast, 'Module stoped')
     },
     async deleteProcess(id, name) {
       const response = await this.$axios.post('/api/process/delete', {

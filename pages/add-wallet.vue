@@ -79,7 +79,7 @@
             </v-card-actions>
           </v-card>
           <br />
-          <v-card min-height="460px">
+          <v-card>
             <v-card-title>
               Your wallets
             </v-card-title>

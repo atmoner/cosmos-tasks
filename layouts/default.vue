@@ -7,12 +7,12 @@
       app
     >
       <v-sheet
-        color="grey lighten-4"
+        color="lighten-4"
         class="pa-4"
       >
         <v-avatar
           class="mb-4"
-          color="grey darken-1"
+          color="darken-1"
           size="64"
         >
           <img
@@ -50,11 +50,20 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+  <v-footer absolute bottom fixed padless>
+    <v-col
+      class="text-center"
+      cols="12"
+    >
+      V1.0.1 — <strong>Cosmos-tasks</strong>
+    </v-col>
+  </v-footer>
     </v-navigation-drawer>
 
     <v-main>
       <Nuxt />
     </v-main>
+
   </v-app>
 </template>
 
