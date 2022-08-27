@@ -216,7 +216,7 @@
                   v-model="finalWallet"
                   :rules="[v => !!v || 'This field is required',]"
                   outlined
-                  :hint="(viewAddrSelected === '') ? '' : viewAddrSelected.addr"
+                  :hint="viewAddrSelected"
                   :items="allWallet"
                   item-text="name"
                   label="Select wallet"
@@ -310,13 +310,16 @@ export default {
   },
   watch:{
     async 'finalWallet'(newVal){
-      const foundChain = newVal.addr.find(element => element.viewDenom === this.selectChain.text)
-      this.viewAddrSelected = foundChain
+      try {
+        const foundChain = newVal.addr.find(element => element.viewDenom === this.selectChain.text)
+        this.viewAddrSelected = foundChain.addr
+      } catch (err) {
+      }
     },
     async 'selectChain'(newVal){
       if (this.finalWallet !== '') {
         const foundChain = this.finalWallet.addr.find(element => element.viewDenom === newVal.text)
-        this.viewAddrSelected = foundChain
+        this.viewAddrSelected = foundChain.addr
       }
 
     }
