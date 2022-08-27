@@ -355,7 +355,7 @@ export default {
       if (foundModule.auth === true) {
         let buff = new Buffer(this.walletPassword)
         let walletPassEncoded = buff.toString('base64')
-        authData = { wallet: this.finalWallet, pass: walletPassEncoded }
+        authData = { wallet: this.finalWallet.name, pass: walletPassEncoded }
       } else
         authData = false
 
