@@ -78,55 +78,83 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="8" md="6">
+          <br />
           <v-card min-height="460px">
             <v-card-title>
               Your wallets
             </v-card-title>
             <v-card-text>
-              <v-simple-table>
-                <template v-slot:default>
-                  <thead>
-                    <tr>
-                      <th class="text-left">
-                        Name
-                      </th>
-                      <th class="text-left">
-                        Method
-                      </th>
-                      <!--<th class="text-left">
-                        Path
-                      </th>-->
-                      <th class="text-left">
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
 
-                    <tr
-                      v-for="item in allWallets"
-                      :key="item.name"
-                    >
-                      <td>{{ item.name }}</td>
-                      <td>directsecp256k1hdwallet-v1</td>
-                      <!--<td>{{ item.path }}</td>-->
-                      <td>
-                        <v-btn
-                          color="error"
-                          @click="deleteWallet(item.name)"
-                        >
-                          Delete
-                        </v-btn>
-                      </td>
-                    </tr>
-                  </tbody>
-                </template>
-              </v-simple-table>
+              <v-expansion-panels>
+                <v-expansion-panel
+                  v-for="item in allWallets"
+                  :key="item.name"
+                >
+                  <v-expansion-panel-header>
+                    {{ item.name }}
+                  </v-expansion-panel-header>
+                  <v-expansion-panel-content>
+                    <v-simple-table>
+                      <template v-slot:default>
+                        <thead>
+                          <tr>
+                            <th class="text-left">
+                              Chain
+                            </th>
+                            <th class="text-left">
+                              Address
+                            </th>
+                          </tr>
+                        </thead>
+      <!--                  <tbody>
+                          <tr>
+                            <td>{{ item.name }} </td>
+                            <td>directsecp256k1hdwallet-v1</td>
+
+                            <td>
+                              <v-btn
+                                color="error"
+                                @click="deleteWallet(item.name)"
+                              >
+                                Delete
+                              </v-btn>
+                            </td>
+                          </tr>
+                        </tbody>-->
+
+                        <tbody>
+                          <tr
+                            v-for="conf in item.allAddress"
+                            :key="conf.chain"
+
+                          >
+                            <td>
+                              <v-avatar size="36">
+                                <img
+                                  :src="conf.img"
+                                  :alt="conf.img"
+                                >
+                              </v-avatar>
+                            <b>{{ conf.chain }}</b> </td>
+                            <td><a :href="conf.mintscanId" target="_blank"> {{ conf.addr }}</a> </td>
+                          </tr>
+                        </tbody>
+                      </template>
+                    </v-simple-table>
+                    <v-card-actions>
+                    <v-spacer></v-spacer>
+                      <v-btn
+                        color="error"
+                        @click="deleteWallet(item.name)"
+                      >
+                      Delete
+                      </v-btn>
+                    </v-card-actions>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+              </v-expansion-panels>
             </v-card-text>
           </v-card>
-
         </v-col>
       </v-row>
     </div>
@@ -138,6 +166,7 @@
 <script>
 import { mapState } from 'vuex'
 import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
+import cosmosConfig from '~/cosmos.config'
 
   export default {
     data: () => ({
@@ -151,6 +180,7 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
       dialogDetail: false,
       addressWallet: '',
       addressWalletError: false,
+      cosmosConfig: cosmosConfig,
       nameRules: [
         v => !!v || 'Name is required',
         v => v.length <= 20 || 'Name must be less than 20 characters',
@@ -191,6 +221,7 @@ import { DirectSecp256k1HdWallet } from "@cosmjs/proto-signing"
       if (checkToken) {
         await this.$store.dispatch('data/getAllWallets')
       }
+
     },
     methods: {
       async addWallet() {

@@ -3,7 +3,11 @@ const fs = require('fs')
 const { Router } = require('express')
 var bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
+let bech32 = require('bech32')
+let axios = require('axios')
+
 const authConfig = require('../../auth.config.js')
+const cosmosConfig = require('../../cosmos.config.js')
 
 const router = Router()
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -36,9 +40,19 @@ router.post('/wallets/list', function (req, res, next) {
     var pathTo = __dirname.replace('/api/routes', '')
     fs.readdir(pathTo + '/wallets/', (err, files) => {
       var wallets = []
+      var addr = []
       files.forEach(file => {
-        if (file !== 'index.js')
-          wallets.push({ name: file.replace('.json', ''), path: pathTo + '/wallets/' + file })
+        var copieAddr = [];
+        if (file !== 'index.js') {
+          var getAddr = fs.readFileSync(pathTo + '/wallets/' + file)
+          getAddr = JSON.parse(getAddr)
+          cosmosConfig.default.forEach( async function(item) {
+            var decode = bech32.decode(getAddr.address)
+            var newAddr = bech32.encode(item.coinLookup.addressPrefix, decode.words)
+            copieAddr.push({ chain: item.name, addr: newAddr, viewDenom: item.coinLookup.viewDenom, img: item.coinLookup.icon, mintscanId: 'https://www.mintscan.io/' + item.mintscanId + '/account/' + newAddr });
+          });
+          wallets.push({ name: file.replace('.json', ''), address: getAddr.address, allAddress: copieAddr, path: pathTo + '/wallets/' + file })
+        }
       })
       res.json(wallets)
     })

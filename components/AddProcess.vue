@@ -144,6 +144,9 @@
           >
           Add task:  {{ selectModule }}
         </v-card-title>
+        <v-card-subtitle>
+
+        </v-card-subtitle>
 
         <v-card-text>
           <v-form v-model="valid">
@@ -208,14 +211,20 @@
                 sm="6"
                 md="6"
               >
+
                 <v-select
                   v-model="finalWallet"
                   :rules="[v => !!v || 'This field is required',]"
                   outlined
+                  :hint="(viewAddrSelected === '') ? '' : viewAddrSelected.addr"
                   :items="allWallet"
+                  item-text="name"
                   label="Select wallet"
                   required
+                  return-object
+                  persistent-hint
                 ></v-select>
+
               </v-col>
               <v-col
                 v-if="selectModuleDetail.auth === true"
@@ -294,9 +303,23 @@ export default {
     allWallet: [],
     finalWallet: '',
     allVariables: [],
+    viewAddrSelected: '',
   }),
   computed: {
     ...mapState('data', ['userToken']),
+  },
+  watch:{
+    async 'finalWallet'(newVal){
+      const foundChain = newVal.addr.find(element => element.viewDenom === this.selectChain.text)
+      this.viewAddrSelected = foundChain
+    },
+    async 'selectChain'(newVal){
+      if (this.finalWallet !== '') {
+        const foundChain = this.finalWallet.addr.find(element => element.viewDenom === newVal.text)
+        this.viewAddrSelected = foundChain
+      }
+
+    }
   },
   async mounted () {
     var allAssets = this.allAssets
@@ -311,7 +334,7 @@ export default {
         })
       var allWallet = this.allWallet
       response.data.forEach( function( item ) {
-        allWallet.push( item.name )
+        allWallet.push( { name: item.name, addr: item.allAddress } )
       })
       this.allWallet = allWallet
     } catch (err) {
