@@ -110,6 +110,9 @@
                         Name
                       </th>
                       <th class="text-left">
+                        Script
+                      </th>
+                      <th class="text-left">
                         From
                       </th>
                       <th class="text-left">
@@ -140,6 +143,7 @@
                     >
                       <td>{{ p.item.pm_id }}</td>
                       <td>{{ p.item.name }}</td>
+                      <td>{{ p.item.pm2_env.COSMOS_SCRIPT_NAME }}</td>
                       <td>{{ p.item.pm2_env.COSMOS_WALLET }}</td>
                       <td>{{ p.item.pm2_env.COSMOS_TIMER_UI }} ({{ p.item.pm2_env.COSMOS_LAST_UPDATE }})</td>
                       <td>

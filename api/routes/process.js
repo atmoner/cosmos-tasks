@@ -84,6 +84,7 @@ router.post('/process/add', function (req, res, next) {
   if (checkTokenReturn) {
     var finalVariable = {
       "COSMOS_NAME": req.body.name,
+      "COSMOS_SCRIPT_NAME": req.body.script_name,
       "COSMOS_SCRIPT": req.body.script,
       "COSMOS_TIMER": req.body.timer,
       "COSMOS_TIMER_UI": req.body.timer_ui,
