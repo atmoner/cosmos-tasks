@@ -5,8 +5,8 @@ export default {
   target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - web-bot',
-    title: 'web-bot',
+    titleTemplate: '%s - Cosmos wallet management',
+    title: 'Cosmos-tasks',
     htmlAttrs: {
       lang: 'en'
     },
@@ -45,7 +45,7 @@ export default {
     [
       'vue-toastification/nuxt',
       {
-        timeout: 1000,
+        timeout: 500,
         draggable: false,
         filterBeforeCreate: (toast, toasts) => {
           if (toasts.filter((t) => t.type === toast.type).length !== 0) {

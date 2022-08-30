@@ -40,7 +40,7 @@ async function doStuff() {
   const recipient = process.env.sendTo
   const amount = {
     denom: foundChain.coinLookup.chainDenom,
-    amount: process.env.amount,
+    amount: process.env.amount / 1000000,
   }
   const fee = {
     amount: [

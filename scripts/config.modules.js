@@ -5,6 +5,7 @@ export default [
     script: './scripts/timer/app.js',
     type: 'prod',
     auth: false,
+    useChain: 'all',
     notice: '',
     variable: {
       0: 'Cosmos_var1',
@@ -17,6 +18,7 @@ export default [
     script: './scripts/get-price/app.js',
     type: 'prod',
     auth: false,
+    useChain: 'all',
     notice: '',
     variable: {
     },
@@ -27,6 +29,7 @@ export default [
     script: './scripts/simple-send/app.js',
     type: 'prod',
     auth: true,
+    useChain: 'all',
     notice: '',
     variable: {
       0: 'sendTo',
@@ -39,6 +42,7 @@ export default [
     script: './scripts/withdraw-rewards/app.js',
     type: 'prod',
     auth: true,
+    useChain: 'all',
     notice: '',
     variable: {
       0: 'FromValidator'
@@ -50,6 +54,7 @@ export default [
     script: './scripts/validator-commisions/app.js',
     type: 'dev',
     auth: true,
+    useChain: ['BitCanna', 'Osmosis'],
     notice: 'You must be a validator to run this script, otherwise it won\'t work!',
     variable: {
     },

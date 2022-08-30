@@ -325,11 +325,7 @@ export default {
     }
   },
   async mounted () {
-    var allAssets = this.allAssets
-    cosmosConfig.forEach( function( item ) {
-      allAssets.push( { text: item.coinLookup.viewDenom, img: item.coinLookup.icon } )
-    })
-    this.allAssets = allAssets
+
 
     try {
       const response = await this.$axios.post( '/api/wallets/list', {
@@ -409,6 +405,20 @@ export default {
       const foundModule = modulesConfig.find(element => element.name === this.selectModule)
       this.listVar = foundModule.variable
       this.selectModuleDetail = foundModule
+
+      var allAssets = this.allAssets
+      if (foundModule.useChain === 'all') {
+        cosmosConfig.forEach( function( item ) {
+          allAssets.push( { text: item.coinLookup.viewDenom, img: item.coinLookup.icon } )
+        })
+      } else {
+        cosmosConfig.forEach( function( item ) {
+          let found = foundModule.useChain.find(element => element === item.name)
+          if(typeof found != "undefined")
+            allAssets.push( { text: item.coinLookup.viewDenom, img: item.coinLookup.icon } )
+        })
+      }
+      this.allAssets = allAssets
     },
     returnModal() {
       this.dialog = true
