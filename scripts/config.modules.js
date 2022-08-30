@@ -54,7 +54,7 @@ export default [
     script: './scripts/validator-commisions/app.js',
     type: 'dev',
     auth: true,
-    useChain: ['BitCanna', 'Osmosis'],
+    useChain: ['BitCanna', 'Osmosis', 'Cosmoshub', 'Akash', 'Stargaze'],
     notice: 'You must be a validator to run this script, otherwise it won\'t work!',
     variable: {
     },

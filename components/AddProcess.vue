@@ -146,6 +146,7 @@
         </v-card-title>
         <v-card-subtitle>
           <p v-if="selectModuleDetail.notice !== ''" class="orange--text"><br />{{ selectModuleDetail.notice }}</p>
+          <br /><p v-html='selectModuleDetail.desc' />
         </v-card-subtitle>
 
         <v-card-text>
