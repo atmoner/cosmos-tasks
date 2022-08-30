@@ -52,22 +52,24 @@ export default [
     name: 'Validator-commisions',
     desc: '<h3>Validator commisions</h3> This module allows you to recover your validator commissions, if you are not a validator, the script will not work',
     script: './scripts/validator-commisions/app.js',
-    type: 'dev',
+    type: 'prod',
     auth: true,
     useChain: ['BitCanna', 'Osmosis', 'Cosmoshub', 'Akash', 'Stargaze'],
     notice: 'You must be a validator to run this script, otherwise it won\'t work!',
     variable: {
     },
-  }/*,
+  },
   {
-    name: 'Reinvest-delegations',
-    desc: '<h3>Reinvest delegations</h3> This module allows you to reinvest the rewards of each delegation to the validator',
-    script: './scripts/reinvest-delegations/app.js',
+    name: 'Osmosis-deposit',
+    desc: '<h3>Osmosis deposit</h3> This module allows you to make a deposit from any chain to osmosis dex in an automated way',
+    script: './scripts/osmosis-deposit/app.js',
     type: 'dev',
     auth: true,
+    useChain: ['BitCanna', 'Cosmoshub', 'Akash', 'Stargaze'],
     notice: '',
     variable: {
+      0: 'amount'
     },
-  }*/
+  }
 ]
 
