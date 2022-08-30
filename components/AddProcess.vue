@@ -145,7 +145,7 @@
           Add task:  {{ selectModule }}
         </v-card-title>
         <v-card-subtitle>
-
+          <p v-if="selectModuleDetail.notice !== ''" class="orange--text"><br />{{ selectModuleDetail.notice }}</p>
         </v-card-subtitle>
 
         <v-card-text>
