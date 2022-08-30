@@ -12,11 +12,13 @@
     "install:simple-send": "cd scripts/simple-send/ && npm install",
     "install:withdraw-rewards": "cd scripts/withdraw-rewards/ && npm install",
     "install:validator-commisions": "cd scripts/validator-commisions/ && npm install",
+    "install:osmosis-deposit": "cd scripts/osmosis-deposit/ && npm install",
     "install:create-account": "node createAccount.js",
     "clear:get-price": "cd scripts/get-price/ && rm -Rf node_modules/",
     "clear:simple-send": "cd scripts/simple-send/ && rm -Rf node_modules/",
     "clear:withdraw-rewards": "cd scripts/withdraw-rewards/ && rm -Rf node_modules/",
     "clear:validator-commisions": "cd scripts/validator-commisions/ && rm -Rf node_modules/",
+    "clear:osmosis-deposit": "cd scripts/osmosis-deposit/ && rm -Rf node_modules/",
     "clear:create-account": "> auth.config.js",
     "postinstall": "run-p install:*",
     "clear": "run-p clear:*"

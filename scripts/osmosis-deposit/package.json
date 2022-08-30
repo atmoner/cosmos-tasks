@@ -1,0 +1,20 @@
+{
+  "name": "osmosis-deposit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chain-registry/osmosis": "^0.7.2",
+    "@cosmjs/proto-signing": "^0.28.11",
+    "@cosmjs/stargate": "^0.28.11",
+    "bech32": "^2.0.0",
+    "chain-registry": "^0.8.1",
+    "dayjs": "^1.11.5",
+    "install": "^0.13.0",
+    "npm": "^8.18.0"
+  }
+}
