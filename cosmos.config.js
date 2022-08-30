@@ -12,7 +12,10 @@ export default [
       icon: `https://raw.githubusercontent.com/osmosis-labs/assetlists/main/images/atom.svg`,
     },
     coingeckoId: 'cosmos',
-    mintscanId: 'cosmos'
+    mintscanId: 'cosmos',
+    osmoIbc: {
+      channel: 'channel-141'
+    }
   },
   {
     chainId: 'bitcanna-1',
@@ -31,7 +34,10 @@ export default [
       gas: '200000',
     },
     coingeckoId: 'bitcanna',
-    mintscanId: 'bitcanna'
+    mintscanId: 'bitcanna',
+    osmoIbc: {
+      channel: 'channel-1'
+    }
   },
   {
     chainId: 'akashnet-2',
@@ -46,7 +52,10 @@ export default [
       icon: `https://raw.githubusercontent.com/osmosis-labs/assetlists/main/images/akt.svg`,
     },
     coingeckoId: 'akash-network',
-    mintscanId: 'akash'
+    mintscanId: 'akash',
+    osmoIbc: {
+      channel: 'channel-9'
+    }
   },
   {
     chainId: 'osmosis-1',
@@ -84,6 +93,9 @@ export default [
       gas: '200000',
     },
     coingeckoId: 'stargaze',
-    mintscanId: 'stargaze'
+    mintscanId: 'stargaze',
+    osmoIbc: {
+      channel: 'channel-0'
+    }
   }
 ]
