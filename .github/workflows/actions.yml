@@ -75,7 +75,7 @@ jobs:
           node-version: 12
       - run: yarn install:osmosis-deposit
 
-  clear-libs:
+  clear-get-price:
     runs-on: ubuntu-latest
     needs: [setup-job, install-get-price]
     steps:
@@ -84,3 +84,43 @@ jobs:
         with:
           node-version: 12
       - run: yarn clear:get-price
+
+  clear-simple-send:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-simple-send]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:simple-send
+      
+  clear-withdraw-rewards:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-withdraw-rewards]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:withdraw-rewards
+      
+  clear-validator-commisions:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-validator-commisions]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:validator-commisions
+      
+  clear-osmosis-deposit:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-osmosis-deposit]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:osmosis-deposit
