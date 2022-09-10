@@ -3,7 +3,19 @@ name: Cosmos-tasks
 on: [push]
 
 jobs:
-  test:
+  setup-job:
+    name: Checkout GitHub repository
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: See where we are
+      run: |
+        ls ${{ github.workspace }}
+
+  install-libs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
