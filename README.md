@@ -1,5 +1,7 @@
 # Cosmos-tasks
 
+[![Cosmos-tasks](https://github.com/atmoner/cosmos-tasks/actions/workflows/actions.yml/badge.svg)](https://github.com/atmoner/cosmos-tasks/actions/workflows/actions.yml)
+
 > __Warning__  
 This environment is in beta!  
 Use only development wallets (wallet created with only a bit of coin)  
