@@ -1,0 +1,23 @@
+name: Cosmos-tasks
+on: push
+
+jobs:
+  setup-job:
+    name: Checkout GitHub repository
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+  prebuild-get-price:
+    name: Prebuild get-price module
+    runs-on: ubuntu-latest
+    needs: setup-job
+    steps:
+    - name: Install get-price module
+      run: npm run install:get-price  
