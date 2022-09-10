@@ -3,11 +3,134 @@ name: Cosmos-tasks
 on: [push]
 
 jobs:
-  test:
+  setup-job:
+    name: Checkout GitHub repository
     runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: See where we are
+      run: |
+        ls ${{ github.workspace }}
+
+  create-account:
+    runs-on: ubuntu-latest
+    needs: setup-job
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: yarn
+      - run: yarn install:create-account
+
+  install-get-price:
+    runs-on: ubuntu-latest
+    needs: [setup-job, create-account]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install:get-price
+
+  install-simple-send:
+    runs-on: ubuntu-latest
+    needs: [setup-job, create-account]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install:simple-send
+
+  install-withdraw-rewards:
+    runs-on: ubuntu-latest
+    needs: [setup-job, create-account]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install:withdraw-rewards
+      
+  install-validator-commisions:
+    runs-on: ubuntu-latest
+    needs: [setup-job, create-account]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install:validator-commisions
+
+  install-osmosis-deposit:
+    runs-on: ubuntu-latest
+    needs: [setup-job, create-account]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn install:osmosis-deposit
+
+  clear-get-price:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-get-price]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:get-price
+
+  clear-simple-send:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-simple-send]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:simple-send
+      
+  clear-withdraw-rewards:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-withdraw-rewards]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:withdraw-rewards
+      
+  clear-validator-commisions:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-validator-commisions]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:validator-commisions
+      
+  clear-osmosis-deposit:
+    runs-on: ubuntu-latest
+    needs: [setup-job, install-osmosis-deposit]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:osmosis-deposit
+
+  clear-create-account:
+    runs-on: ubuntu-latest
+    needs: [setup-job, create-account, clear-get-price, clear-simple-send, clear-withdraw-rewards, clear-validator-commisions, clear-osmosis-deposit]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: yarn clear:create-account
