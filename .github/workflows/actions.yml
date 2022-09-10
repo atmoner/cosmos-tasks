@@ -12,7 +12,10 @@ jobs:
       uses: actions/setup-node@v3
       with:
           node-version: "16.x"
-
+    - name: Check node version        
+      run: |
+        node -v
+        
   prebuild-job1:
     name: Prebuild modules
     runs-on: ubuntu-latest
