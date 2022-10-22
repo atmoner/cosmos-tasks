@@ -110,9 +110,6 @@
                         Name
                       </th>
                       <th class="text-left">
-                        Script
-                      </th>
-                      <th class="text-left">
                         From
                       </th>
                       <th class="text-left">
@@ -140,17 +137,19 @@
                       v-if="allProcess.length > 0"
                       v-for="p in allProcess"
                       :key="p.item.name"
+
                     >
                       <td>{{ p.item.pm_id }}</td>
                       <td>{{ p.item.name }}</td>
-                      <td>{{ p.item.pm2_env.COSMOS_SCRIPT_NAME }}</td>
-                      <td>{{ p.item.pm2_env.COSMOS_WALLET }}</td>
-                      <td>{{ p.item.pm2_env.COSMOS_TIMER_UI }} ({{ p.item.pm2_env.COSMOS_LAST_UPDATE }})</td>
+                      <td>{{ p.item.COSMOS_WALLET }}</td>
+                      <td>
+                      <v-progress-circular :value="20"></v-progress-circular>
+                      {{ p.item.COSMOS_TIMER_UI }} ({{ p.item.COSMOS_LAST_UPDATE }})</td>
                       <td>
                         <img
                           width="32"
                           height="32"
-                          :src="p.item.pm2_env.COSMOS_LOGO"
+                          :src="p.item.COSMOS_LOGO"
                           alt=""
                           class="ma-2"
                         >
@@ -163,7 +162,7 @@
                           color="green"
                           small
                           @click="start(p.item.name)"
-                          :disabled="p.item.pm2_env.status !== 'stopped'"
+                          :disabled="p.item.status !== 'stopped'"
                         >
                           <v-icon dark>
                             mdi-arrow-right-drop-circle-outline
@@ -175,7 +174,7 @@
                           color="blue"
                           small
                           @click="start(p.item.name)"
-                          :disabled="p.item.pm2_env.status === 'stopped'"
+                          :disabled="p.item.status === 'stopped'"
                         >
                           <v-icon dark>
                             mdi-arrow-right-drop-circle-outline
@@ -187,7 +186,7 @@
                           color="warning"
                           small
                           @click="stop(p.item.pm_id)"
-                          :disabled="p.item.pm2_env.status == 'stopped'"
+                          :disabled="p.item.status == 'stopped'"
                         >
                           <v-icon dark>
                             mdi-pause-octagon-outline
@@ -199,7 +198,7 @@
                           color="error"
                           small
                           @click="deleteProcess(p.item.pm_id, p.item.name)"
-                          :disabled="p.item.pm2_env.status !== 'stopped'"
+                          :disabled="p.item.status !== 'stopped'"
                         >
                           <v-icon dark>
                             mdi-delete-forever-outline
@@ -211,7 +210,7 @@
                         <v-btn
                           elevation="2"
                           small
-                          @click.stop="dialog = true && readLog(p.item.name)"
+                          @click="selectTask(p.item.name)"
                         >
                           <v-icon dark>
                             mdi-post-outline
@@ -223,45 +222,6 @@
                   </tbody>
                 </template>
               </v-simple-table>
-              <v-dialog
-                v-model="dialog"
-                max-width="800"
-              >
-                <v-card>
-                  <v-card-title class="text-h5">
-                    {{ logName }} Logs
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      elevation="2"
-                      small
-                      @click="readLog(logName)"
-                    >
-                      <v-icon dark>
-                        mdi-refresh
-                      </v-icon>
-                      Refresh
-                    </v-btn>
-                    <v-btn
-                      elevation="2"
-                      small
-                      @click.stop="dialog = true && emptyLog(logName)"
-                    >
-                      <v-icon dark>
-                        mdi-broom
-                      </v-icon>
-                      Empty log
-                    </v-btn>
-                  </v-card-title>
-                  <v-card-text>
-                    <v-textarea
-                      solo
-                      name="input-7-4"
-                      label="Task log"
-                      :value="log"
-                    ></v-textarea>
-                  </v-card-text>
-                </v-card>
-              </v-dialog>
             </v-card-text>
           </v-card>
         </div>

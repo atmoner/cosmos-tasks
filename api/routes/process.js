@@ -26,7 +26,18 @@ router.post('/process', function (req, res, next) {
     pm2.list((err, list) => {
       const structDatas = []
       list.forEach(function(item){
-        structDatas.push({ item })
+        structDatas.push({
+          item: {
+            name: item.name,
+            status: item.pm2_env.status,
+            monit: item.monit,
+            pm_id: item.pm_id,
+            COSMOS_WALLET: item.pm2_env.COSMOS_WALLET,
+            COSMOS_TIMER_UI: item.pm2_env.COSMOS_TIMER_UI,
+            COSMOS_LAST_UPDATE: item.pm2_env.COSMOS_LAST_UPDATE,
+            COSMOS_LOGO: item.pm2_env.COSMOS_LOGO,
+          }
+        })
       });
       res.json(structDatas)
     })
