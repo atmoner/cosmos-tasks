@@ -139,6 +139,20 @@ router.post('/process/log', function (req, res, next) {
   } else
     res.status(401).json("Invalid Token")
 })
+/* POST PM2 process log. */
+router.post('/process/error-log', function (req, res, next) {
+  var checkTokenReturn = checkToken(req.body.token, res)
+  if (checkTokenReturn) {
+    try {
+      const homePath = os.homedir()
+      const data = fs.readFileSync(homePath + '/.pm2/logs/' + req.body.name + '-error.log', 'utf8');
+      res.json(data)
+    } catch (err) {
+      res.json(err)
+    }
+  } else
+    res.status(401).json("Invalid Token")
+})
 /* POST PM2 empty log. */
 router.post('/process/log/empty', function (req, res, next) {
   var checkTokenReturn = checkToken(req.body.token, res)
@@ -146,6 +160,21 @@ router.post('/process/log/empty', function (req, res, next) {
     try {
       const homePath = os.homedir()
       fs.truncateSync(homePath + '/.pm2/logs/' + req.body.name + '-out.log');
+      res.json('')
+    } catch (err) {
+      res.json(err)
+    }
+  } else
+    res.status(401).json("Invalid Token")
+})
+
+/* POST PM2 empty error-log. */
+router.post('/process/error-log/empty', function (req, res, next) {
+  var checkTokenReturn = checkToken(req.body.token, res)
+  if (checkTokenReturn) {
+    try {
+      const homePath = os.homedir()
+      fs.truncateSync(homePath + '/.pm2/logs/' + req.body.name + '-error.log');
       res.json('')
     } catch (err) {
       res.json(err)

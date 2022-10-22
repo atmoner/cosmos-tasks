@@ -227,6 +227,94 @@
         </div>
       </div>
 
+          <v-row v-if="logName">
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-card class="mt-12 mx-auto">
+                <v-card-title class="headline">
+                  Main logs
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      elevation="2"
+                      small
+                      @click="readLog(logName)"
+                    >
+                      <v-icon dark>
+                        mdi-refresh
+                      </v-icon>
+                      Refresh
+                    </v-btn>
+
+                    <v-btn
+                      elevation="2"
+                      small
+                      @click="emptyLog(logName)"
+                    >
+                      <v-icon dark>
+                        mdi-broom
+                      </v-icon>
+                      Empty log
+                    </v-btn>
+                </v-card-title>
+                <v-card-text>
+                    <v-textarea
+                      solo
+                      name="input-7-4"
+                      label="Task log"
+                      :value="log"
+                    ></v-textarea>
+                </v-card-text>
+              </v-card>
+
+            </v-col>
+            <v-col
+              cols="12"
+              md="6"
+            >
+              <v-card class="mt-12 mx-auto">
+                <v-card-title class="headline">
+                  Errors logs
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      elevation="2"
+                      small
+                      @click="readErrorLog(logName)"
+                    >
+                      <v-icon dark>
+                        mdi-refresh
+                      </v-icon>
+                      Refresh
+                    </v-btn>
+
+                    <v-btn
+                      elevation="2"
+                      small
+                      @click="emptyErrorLog(logName)"
+                    >
+                      <v-icon dark>
+                        mdi-broom
+                      </v-icon>
+                      Empty log
+                    </v-btn>
+                </v-card-title>
+                <v-card-text>
+                    <v-textarea
+                      solo
+                      name="input-7-4"
+                      label="Task log"
+                      :value="errorLog"
+                    ></v-textarea>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
+
+
+
+
+
 
     </v-col>
   </v-row>
@@ -234,6 +322,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import dayjs from 'dayjs'
 import { notifWaiting, notifError, notifSuccess } from '~/libs/notifications'
 
 export default {
@@ -241,9 +330,9 @@ export default {
   data () {
     return {
       structDatas: [],
-      dialog: false,
       log: '',
       logName: '',
+      errorLog: '',
     }
   },
   computed: {
@@ -253,6 +342,8 @@ export default {
     let checkToken = await this.$store.dispatch('data/checkToken')
     if (checkToken) {
       this.initProcess()
+      let today = dayjs(new Date()).endOf('month');
+      console.log(today)
     }
   },
   async fetch() {
@@ -302,7 +393,7 @@ export default {
       })
       this.log = response.data
       this.logName = name
-      notifSuccess(this.$toast, 'Log refreshed')
+      // notifSuccess(this.$toast, 'Log refreshed')
     },
     async emptyLog(name) {
       const response = await this.$axios.post('/api/process/log/empty', {
@@ -311,6 +402,27 @@ export default {
       })
       this.log = response.data
       notifSuccess(this.$toast, 'Log deleted')
+    },
+    async readErrorLog(name) {
+      const response = await this.$axios.post('/api/process/error-log', {
+        name: name,
+        token: this.userToken
+      })
+      this.errorLog = response.data
+      this.logName = name
+    },
+    // TODO deleteErrorLog /process/error-log/empty
+    async emptyErrorLog(name) {
+      const response = await this.$axios.post('/api/process/error-log/empty', {
+        name: name,
+        token: this.userToken
+      })
+      this.errorLog = response.data
+      notifSuccess(this.$toast, 'error-log deleted')
+    },
+    async selectTask(name) {
+      this.readLog(name)
+      this.readErrorLog(name)
     },
 
   },
