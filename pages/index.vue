@@ -143,7 +143,7 @@
                       <td>{{ p.item.name }}</td>
                       <td>{{ p.item.COSMOS_WALLET }}</td>
                       <td>
-                      <v-progress-circular :value="20"></v-progress-circular>
+                      <!--<v-progress-circular :value="20"></v-progress-circular>-->
                       {{ p.item.COSMOS_TIMER_UI }} ({{ p.item.COSMOS_LAST_UPDATE }})</td>
                       <td>
                         <img
@@ -310,12 +310,6 @@
               </v-card>
             </v-col>
           </v-row>
-
-
-
-
-
-
     </v-col>
   </v-row>
 </template>
